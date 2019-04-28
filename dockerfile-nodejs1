@@ -1,0 +1,11 @@
+FROM alpine:latest
+
+WORKDIR /
+
+RUN apk add npm 
+
+COPY /web-script-nodejs1 /web-script-nodejs1
+
+EXPOSE 3001:3001
+
+CMD ["node", "/web-script-nodejs1", "&"]

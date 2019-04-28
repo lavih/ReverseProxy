@@ -1,0 +1,60 @@
+# docker-compose -f stack up --build >> docker-compose -f stack down
+version: '3.7'
+services:
+
+   nginx:
+      image: nginx:custom
+      build:
+        context: .
+        dockerfile: dockerfile-nginx
+      volumes:
+        - nginx:/etc/nginx
+      networks:
+        - lavih
+      ports:
+        - 80:80
+        - 443:443
+#      restart_policy:
+#        condition: always
+   node1:
+     image: node1
+     build:
+      context: .
+      dockerfile: dockerfile-nodejs1
+     networks:
+        - lavih
+     ports:
+       - 3001:3001
+#     restart_policy:
+#       condition: always
+   node2:
+     image: node2
+     build:
+      context: .
+      dockerfile: dockerfile-nodejs2
+     networks:
+        - lavih
+     ports:
+       - 3002:3002
+#     restart_policy:
+#        condition: alway
+   node3:
+     image: node3
+     build:
+      context: .
+      dockerfile: dockerfile-nodejs3
+     networks:
+        - lavih
+     ports:
+       - 3003:3003
+#     restart_policy:
+#        condition: always
+   client:
+      image: alpine:latest
+      networks:
+        - lavih
+      command: sh -c "ping 8.8.8.8"
+networks:
+  lavih:
+volumes:
+  nginx:  
