@@ -19,17 +19,19 @@ RUN wget "http://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz" -O nginx.tar.
     libxml2-utils \
     perl-module-build \
     perl-dev \
-    perl
+    perl \
+    nginx-mod-http-perl
 
 RUN CONFARGS=$(nginx -V 2>&1 | sed -n -e 's/^.*arguments: //p') \
     mkdir -p /usr/src && \
     tar -zxC /usr/src -f nginx.tar.gz && \
     cd /usr/src/nginx-$NGINX_VERSION && \
-    ./configure --with-compat $CONFARGS --with-http_perl_module && \
+    ./configure -with-http_perl_module=dynamic --with-compat $CONFARGS && \
     make && make install && rm -f nginx.tar.gz
 
 # -Dusemultiplicity=yes -Dusethreads=yes -Dusemymalloc=no
 # /usr/lib/perl5/core_perl/CORE
+# --with-http_perl_module
 
 WORKDIR / 
 COPY /nginx.conf /etc/nginx/conf.d/nginx.conf
