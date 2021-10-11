@@ -1,6 +1,6 @@
 version: "3.2"
 services:
-  nodejs1:
+  node1:
     build:
       context: .
       dockerfile: dockerfile-nodejs1
@@ -8,7 +8,7 @@ services:
     container_name: node1
     ports:
       - 3001:3001
-  nodejs2:
+  node2:
     build:
       context: .
       dockerfile: dockerfile-nodejs2
@@ -16,7 +16,7 @@ services:
     container_name: node2
     ports:
       - 3002:3002
-  nodejs3:
+  node3:
     build:
       context: .
       dockerfile: dockerfile-nodejs3
@@ -24,7 +24,7 @@ services:
     container_name: node3
     ports:
       - 3003:3003
-  nodejs4:
+  node4:
     build:
       context: .
       dockerfile: dockerfile-nodejs4-customized
