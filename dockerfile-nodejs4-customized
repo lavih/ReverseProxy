@@ -10,6 +10,7 @@ EXPOSE 3004:3004
 
 ENV HOST="node4"
 ENV POST="3004"
+ENV LISTEN="80"
 
 CMD ["node", "/web-script-nodejs4", "&"]
 
