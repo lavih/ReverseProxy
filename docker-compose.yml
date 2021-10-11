@@ -24,10 +24,18 @@ services:
     container_name: node3
     ports:
       - 3003:3003
+  nodejs4:
+    build:
+      context: .
+      dockerfile: dockerfile-nodejs4-customized
+    image: nodejs4:latest
+    container_name: node4
+    ports:
+      - 3004:3004
   nginx:
     build:
       context: .
-      dockerfile: dockerfile-nginx
+      dockerfile: dockerfile-nginx-custom-modules
     image: nginx-custom:latest
     container_name: nginx
     ports:
@@ -37,3 +45,4 @@ services:
       - "nodejs1"
       - "nodejs2"
       - "nodejs3"
+

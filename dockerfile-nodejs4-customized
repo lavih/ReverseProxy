@@ -1,0 +1,15 @@
+FROM alpine:latest
+
+WORKDIR /
+
+RUN apk add npm 
+
+COPY /web-script-nodejs4 /web-script-nodejs4
+
+EXPOSE 3004:3004
+
+ENV HOST="node4"
+ENV POST="3004"
+
+CMD ["node", "/web-script-nodejs4", "&"]
+
