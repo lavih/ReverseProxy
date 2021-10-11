@@ -1,0 +1,39 @@
+version: "3.2"
+services:
+  nodejs1:
+    build:
+      context: .
+      dockerfile: dockerfile-nodejs1
+    image: nodejs1:latest
+    container_name: node1
+    ports:
+      - 3001:3001
+  nodejs2:
+    build:
+      context: .
+      dockerfile: dockerfile-nodejs2
+    image: nodejs2:latest
+    container_name: node2
+    ports:
+      - 3002:3002
+  nodejs3:
+    build:
+      context: .
+      dockerfile: dockerfile-nodejs3
+    image: nodejs3:latest
+    container_name: node3
+    ports:
+      - 3003:3003
+  nginx:
+    build:
+      context: .
+      dockerfile: dockerfile-nginx
+    image: nginx-custom:latest
+    container_name: nginx
+    ports:
+      - 80:80
+      - 443:443
+    depends_on:
+      - "nodejs1"
+      - "nodejs2"
+      - "nodejs3"
