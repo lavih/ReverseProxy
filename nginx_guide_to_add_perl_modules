@@ -1,0 +1,13 @@
+perl_set "http://$HOST:$PORT 'sub { return $ENV{"HOST"}; }';
+
+https://serverfault.com/questions/577370/how-can-i-use-environment-variables-in-nginx-conf
+
+https://stackoverflow.com/questions/21866477/nginx-use-environment-variables
+
+https://stackoverflow.com/questions/21866477/nginx-use-environment-variables
+
+https://web.archive.org/web/20170712003702/https://docs.apitools.com/blog/2014/07/02/using-environment-variables-in-nginx-conf.html
+
+https://stackoverflow.com/questions/40426657/unknown-directive-perl-modules/42611712
+
+https://stackoverflow.com/questions/40574866/docker-nginx-ngx-http-image-filter-module
