@@ -26,7 +26,7 @@ RUN CONFARGS=$(nginx -V 2>&1 | sed -n -e 's/^.*arguments: //p') \
     mkdir -p /usr/src && \
     tar -zxC /usr/src -f nginx.tar.gz && \
     cd /usr/src/nginx-$NGINX_VERSION && \
-    ./configure -with-http_perl_module=dynamic --with-compat $CONFARGS && \
+    ./configure --with-http_perl_module=dynamic --with-compat $CONFARGS && \
     make && make install && rm -f nginx.tar.gz
 
 # -Dusemultiplicity=yes -Dusethreads=yes -Dusemymalloc=no
