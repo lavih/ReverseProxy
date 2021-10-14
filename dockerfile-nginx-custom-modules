@@ -32,6 +32,14 @@ RUN CONFARGS=$(nginx -V 2>&1 | sed -n -e 's/^.*arguments: //p') \
 # -Dusemultiplicity=yes -Dusethreads=yes -Dusemymalloc=no
 # /usr/lib/perl5/core_perl/CORE
 # --with-http_perl_module
+#/usr/bin/perl
+#/usr/src/nginx-1.21.3/auto/lib/perl
+#/usr/src/nginx-1.21.3/objs/src/http/modules/perl
+#/usr/src/nginx-1.21.3/src/http/modules/perl
+#/nginx-1.21.3/auto/lib/perl
+#/nginx-1.21.3/src/http/modules/perl
+#/nginx-1.21.3/objs/src/http/modules/perl
+
 
 WORKDIR / 
 COPY /node_nginx.conf /etc/nginx/conf.d/node_nginx.conf
