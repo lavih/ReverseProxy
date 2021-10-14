@@ -34,7 +34,7 @@ RUN CONFARGS=$(nginx -V 2>&1 | sed -n -e 's/^.*arguments: //p') \
 # --with-http_perl_module
 
 WORKDIR / 
-COPY /nginx.conf /etc/nginx/conf.d/nginx.conf
+COPY /custom_node_nginx.conf /etc/nginx/conf.d/nginx.conf
 
 EXPOSE 80:80
 EXPOSE 443:443
